@@ -12,6 +12,10 @@ This package contains only a batch script to easily call =pdb2pqr=, =apbs=,
 Basically, this script is also derived from a *Perl* version created by
 Terakawa-san.
 
+UPDATE: Recently Niina-san rewrite the =pdcp= part, which is faster than the
+original version.  Please ask him for details and download from his git
+repository.
+
 * Run
 
 Simply add the PDB structure file to the =pdb_protein= directory ("aaa.pdb" for
