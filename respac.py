@@ -175,7 +175,7 @@ def main(pro_name):
     print(' Done... ')
 
     print(' DXMATH calculating...')
-    dxmath_command = dxmath_command_path + " ./lib/template/dxmath.inp" + " >./run/DXMATH.log 2>&1"
+    dxmath_command = shell_path + dxmath_command_path + " ./lib/template/dxmath.inp" + " >./run/DXMATH.log 2>&1"
     try:
         os.system(dxmath_command)
     except:
@@ -185,9 +185,13 @@ def main(pro_name):
 
     mv_apbs_out_command = "mv apbs_potential.dx " + apbs_out_name
     mv_volm_out_command = "mv delta_vol.dx " + volm_out_name
-    os.system(mv_apbs_out_command)
-    os.system(mv_volm_out_command)
-    os.system("rm -f vol_*.dx")
+    try:
+        os.system(mv_apbs_out_command)
+        os.system(mv_volm_out_command)
+        os.system("rm -f vol_*.dx")
+    except:
+        print(" Something wrong with APBS claculations...")
+        return
 
     # -------------------- Determine surface --------------------
     print('============================================================')
