@@ -7,27 +7,27 @@ protein charge distributions.
 
 * Dependency
 
-This package contains only a batch script to easily call `pdb2pqr`, `apbs`,
-`surface`, and `pdcp`.  The last two are written by Dr. Tsuyoshi Terakawa.
-Basically, this script is also derived from a `Perl` version created by
+This package contains only a batch script to easily call =pdb2pqr=, =apbs=,
+=surface=, and =pdcp=.  The last two are written by Dr. Tsuyoshi Terakawa.
+Basically, this script is also derived from a *Perl* version created by
 Terakawa-san.
 
 * Run
 
-Simply add the PDB structure file to the `pdb_protein` directory ("aaa.pdb" for
+Simply add the PDB structure file to the =pdb_protein= directory ("aaa.pdb" for
 example), and run
 
 #+BEGIN_SRC bash
 ./respac.py aaa
 #+END_SRC
-where `aaa` is the file name of the protein.
+where ~aaa~ is the file name of the protein.
 
 The output will be a file containing partial charges for surface residues in
-protein.  The file will be stored in the `results` directory.
+protein.  The file will be stored in the =results= directory.
 
 
 * Other Tools
 
 There are also some tools to make it easy to convert the output into *CafeMol*
-input format, and to plot the distribution of charges.  Please see the `tools`
+input format, and to plot the distribution of charges.  Please see the =tools=
 directory.
