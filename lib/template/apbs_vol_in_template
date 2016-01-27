@@ -1,0 +1,29 @@
+read 
+    mol pqr PQRFILE
+end
+
+# A POTENTIAL
+elec name A
+    mg-auto
+    dime DIMX DIMY DIMZ
+    cglen BOXLX BOXLY BOXLZ
+    fglen BOXLX BOXLY BOXLZ
+    fgcent mol 1
+    cgcent mol 1
+    mol 1
+    lpbe
+    bcfl mdh
+    ion charge 1 conc 0.001 radius RADIUS
+    ion charge -1 conc 0.001 radius RADIUS
+    pdie 2.0000
+    sdie 78.5400
+    chgm spl2
+    srfm mol
+    srad 0.0
+    swin 0.3
+    sdens 10.0
+    temp 300.00
+    calcenergy no
+    calcforce no
+    write kappa dx OUTPUT
+end
