@@ -51,19 +51,9 @@ def main():
 
     ax.text(85, -1.6, "Net Charge =" + str(net_charge), ha='center', va='bottom', fontsize=18)
 
-    plt.savefig("apobec3g_charge.png", dpi=150)
+    plt.savefig("_charge_distribution.png", dpi=150)
     # plt.show()
 
-    # -------------------- output for CafeMol input --------------------
-    def cafe_out(dna_length):
-        fout = open('cafemol.insert', 'w')
-        out_str = "CHARGE_CHANGE  {0:4d}   {1:8.3f}\n"
-        for i, v in enumerate(resid):
-            fout.write(out_str.format(v+dna_length, charge[i]))
-        fout.close()
-
-    # ---------- for HU specifically ----------
-    cafe_out(0)
 
 if __name__ == '__main__':
     main()
