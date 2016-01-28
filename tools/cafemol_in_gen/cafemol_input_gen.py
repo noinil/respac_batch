@@ -8,8 +8,9 @@ pro_resid_charge = []
 def print_man():
     """Print out usage information.
     """
-    man_str = """ Usage: ./cafemol_input_gen.py N_BDNA PRO_NAME
-        By now only monomer and dimer supported.
+
+    man_str = """ [0;31;1m Usage: ./cafemol_input_gen.py N_BDNA PRO_NAME [0m
+    So far only monomer and dimer supported.
     """
     print(man_str)
 
@@ -115,11 +116,13 @@ if __name__ == '__main__':
 
     if len(sys.argv) < 3:
         print_man()
+        exit()
     try:
         n_dsDNA = int(sys.argv[1])
         pro_name = sys.argv[2]
     except:
         print_man()
+        exit()
 
     pdb_info = read_pdb(pro_name)
     pro_aa_num = pdb_info['res_num']
