@@ -36,7 +36,8 @@ def main(pro_name):
         print(" !!! ERROR:", pdb_name, " not found. ")
         return
 
-    os.system('mkdir -p run/pqr run/apbs_in run/apbs_out run/surf_in run/pdc_in')
+    os.system('mkdir -p run/pqr run/apbs_in run/apbs_out run/surf_in run/pdc_in run/pdb')
+    pdb_tmp_name = './run/pdb/' + pro_name + '.pdb'
     pqr_name = './run/pqr/' + pro_name + '.pqr'
     apbs_name = './run/apbs_in/' + pro_name + ".in"
     apbs_vol_A_name = './run/apbs_in/' + pro_name + "_vol_A.in"
@@ -50,20 +51,34 @@ def main(pro_name):
     # -------------------- reading PDB --------------------
     print('============================================================')
     print(' Processing PDB file:', pdb_name)
+    aa_id = -1
+    ch_id = '*'
+    cg_id = 0
+    fout_pdb_tmp = open(pdb_tmp_name, 'w')
     with open(pdb_name, 'r') as pdb_in:
         coor_x = []
         coor_y = []
         coor_z = []
         for line in pdb_in:
-            if line.startswith('ATOM  '):
+            if line.startswith('ATOM  ') or line.startswith('HETATM'):
+                pdb_resid = int(line[22:26])
+                chain_id = line[21]
+                res_name = line[17:20]
+                if res_name == 'ZN ' or res_name == ' ZN':
+                    res_name = 'ZN2'
                 x = float(line[30:38])
                 y = float(line[38:46])
                 z = float(line[46:54])
                 coor_x.append(x)
                 coor_y.append(y)
                 coor_z.append(z)
-            if line.startswith('END'):
-                break
+                if pdb_resid > aa_id or chain_id != ch_id:
+                    aa_id = pdb_resid
+                    ch_id = chain_id
+                    cg_id += 1
+                newline = 'ATOM  ' + line[6:17] + res_name + line[20:22] + str(cg_id).rjust(4) + line.rstrip()[26:] + '\n'
+                fout_pdb_tmp.write(newline)
+        fout_pdb_tmp.write('END')
         x_min, x_max = min(coor_x), max(coor_x)
         y_min, y_max = min(coor_y), max(coor_y)
         z_min, z_max = min(coor_z), max(coor_z)
@@ -72,11 +87,12 @@ def main(pro_name):
         length_z = round(z_max - z_min) + 2.0
 
     print(' Getting box size:', length_x, '*', length_y, '*', length_z)
+    fout_pdb_tmp.close()
 
     # -------------------- Generating PQR file --------------------
     print('============================================================')
     print(' Generating pqr file:', pqr_name)
-    pqr_command_params = "--ff=CHARMM " + pdb_name + " " + pqr_name + " >./run/PDB2PQR.log 2>&1"
+    pqr_command_params = "--ff=CHARMM " + pdb_tmp_name + " " + pqr_name + " >./run/PDB2PQR.log 2>&1"
     pqr_command = pqr_command_path + " " + pqr_command_params
     try:
         os.system(pqr_command)
