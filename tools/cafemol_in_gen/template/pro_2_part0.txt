@@ -1,0 +1,74 @@
+**************************************************************
+**************************************************************
+** HU binding to non-specific DNA (35bp)
+**************************************************************
+**************************************************************
+
+** **************************************************************
+** filenames (required)
+**************************************************************
+<<<< filenames
+path         = ./
+filename     = hu_dna35
+OUTPUT pdb dcd psf rst
+
+path_pdb     = ./pdb
+path_ini     = ./pdb
+path_natinfo = ./ninfo
+path_para    = ./para
+path_aicg    = ./aicg
+** path_msf  = ./msf
+>>>>
+
+** **************************************************************
+** job_cntl
+**************************************************************
+<<<< job_cntl
+i_run_mode      = 2
+i_simulate_type = 1
+i_initial_state = 2
+i_initial_velo  = 0
+i_periodic      = 0
+>>>>
+
+** **************************************************************
+** unit_and_state
+**************************************************************
+<<<< unit_and_state
+i_seq_read_style       = 1
+i_go_native_read_style = 1
+1-2       dna2     dna.pdb
+3-4       protein  pro.pdb
+>>>>
+
+** **************************************************************
+** energy_function
+**************************************************************
+<<<< energy_function
+LOCAL(1-2)          L_DNA2C
+LOCAL(3-4)          L_AICG2_PLUS
+NLOCAL(1-2/1-2)     DNA2C ELE
+NLOCAL(3-4/3-4)     AICG2 EXV ELE
+NLOCAL(1-2/3-4)     EXV ELE
+i_use_atom_protein    = 0
+i_use_atom_dna        = 0
+i_go_atom_dna         = 1
+i_output_energy_style = 1
+i_coef_from_ninfo     = 0
+i_temp_independent    = 0
+i_residue_exv_radii   = 1
+
+>>>>
+
+** **************************************************************
+** electrostatic
+**************************************************************
+<<<< electrostatic
+cutoff_ele           = 100.0
+ionic_strength       = 0.05
+diele_water          = 78.0
+i_diele              = 1
+dna2_phos_pro_charge = -1.00
+
+** add charge modifications here
+** ------------------------------
