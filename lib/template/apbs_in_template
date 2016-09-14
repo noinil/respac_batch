@@ -10,8 +10,8 @@ elec name A
     fgcent mol 1
     mol 1
     lpbe
-    ion charge 1 conc 0.001 radius 2.0
-    ion charge -1 conc 0.001 radius 2.0
+    ion charge 1 conc IONIC_STRENGTH radius 2.0
+    ion charge -1 conc IONIC_STRENGTH radius 2.0
     bcfl mdh
     pdie 2.0000
     sdie 78.5400
