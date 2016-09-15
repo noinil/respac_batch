@@ -13,8 +13,8 @@ elec name A
     mol 1
     lpbe
     bcfl mdh
-    ion charge 1 conc 0.001 radius RADIUS
-    ion charge -1 conc 0.001 radius RADIUS
+    ion charge 1 conc IONIC_STRENGTH radius RADIUS
+    ion charge -1 conc IONIC_STRENGTH radius RADIUS
     pdie 2.0000
     sdie 78.5400
     chgm spl2

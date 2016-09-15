@@ -9,7 +9,6 @@ def main(pro_name):
     '''
 
     # -------------------- Commands & Params --------------------
-
     pqr_command_path = "/home/noinil/Workspace/respac/pdb2pqr-linux-bin64-2.0.0/pdb2pqr "
     apbs_command_path = "/home/noinil/Workspace/respac/APBS-1.4.1-binary/bin/apbs "
     dxmath_command_path = "/home/noinil/Workspace/respac/APBS-1.4.1-binary/share/apbs/tools/bin/dxmath "
@@ -122,6 +121,7 @@ def main(pro_name):
             new_line = re.sub('BOXLX', str(apbs_box_xlen), new_line)
             new_line = re.sub('BOXLY', str(apbs_box_ylen), new_line)
             new_line = re.sub('BOXLZ', str(apbs_box_zlen), new_line)
+            new_line = re.sub('IONIC_STRENGTH', str(ionic_strength), new_line)
             fout_apbs_in.write(new_line)
     fout_apbs_in.close()
     print(' APBS input file ', apbs_name, ' created.')
@@ -139,6 +139,7 @@ def main(pro_name):
             new_line = re.sub('BOXLZ', str(apbs_box_zlen), new_line)
             new_line = re.sub('RADIUS', str(apbs_radius_A), new_line)
             new_line = re.sub('OUTPUT', 'vol_A', new_line)
+            new_line = re.sub('IONIC_STRENGTH', str(ionic_strength), new_line)
             fout_apbs_vol_A_in.write(new_line)
     fout_apbs_vol_A_in.close()
     print(' APBS input file ', apbs_vol_A_name, ' created.')
@@ -156,6 +157,7 @@ def main(pro_name):
             new_line = re.sub('BOXLZ', str(apbs_box_zlen), new_line)
             new_line = re.sub('RADIUS', str(apbs_radius_B), new_line)
             new_line = re.sub('OUTPUT', 'vol_B', new_line)
+            new_line = re.sub('IONIC_STRENGTH', str(ionic_strength), new_line)
             fout_apbs_vol_B_in.write(new_line)
     fout_apbs_vol_B_in.close()
     print(' APBS input file ', apbs_vol_B_name, ' created.')
