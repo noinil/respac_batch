@@ -1,7 +1,7 @@
-diel 80.0
+diel 78.54
 temp 300.00
 debye DEBYE
-penalty 500.0
+penalty 1000.0
 NetCharge 10000000.0
 points 1
 CPU 1

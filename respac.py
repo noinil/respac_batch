@@ -18,7 +18,7 @@ def main(pro_name):
     shell_path = "export LD_LIBRARY_PATH=~/Workspace/respac/APBS-1.4.1-binary/lib/:/usr/local/lib/:/usr/lib/:$LD_LIBRARY_PATH; "
 
     # -------------------- Basic Variables --------------------
-    ionic_strength  = 0.001
+    ionic_strength  = 0.15
     apbs_box_margin = 20.0
     apbs_grid_size  = 0.45
     apbs_radius_A   = 3.0
@@ -215,7 +215,7 @@ def main(pro_name):
     print('============================================================')
     print(' Determining surface residues... ')
     surface_params1 = " --pqr " + pqr_name + " --ofname " + surf_name
-    surface_params2 = " --dbox 6.0 --r_probe 4.0 "  + " >./run/SURFACE.log 2>&1"
+    surface_params2 = " --dbox 6.0 --r_probe 3.0 "  + " >./run/SURFACE.log 2>&1"
     surface_command = shell_path + surface_command_path + surface_params1 + surface_params2
     try:
         os.system(surface_command)
