@@ -9,13 +9,13 @@ def main(pro_name):
     '''
 
     # -------------------- Commands & Params --------------------
-    pqr_command_path = "/home/noinil/Workspace/respac/pdb2pqr-linux-bin64-2.0.0/pdb2pqr "
-    apbs_command_path = "/home/noinil/Workspace/respac/APBS-1.4.1-binary/bin/apbs "
-    dxmath_command_path = "/home/noinil/Workspace/respac/APBS-1.4.1-binary/share/apbs/tools/bin/dxmath "
-    surface_command_path = "/home/noinil/Workspace/respac/surface/bin/surface "
-    pdcp_command_path = "/home/noinil/Workspace/respac/pdcp/bin/pdcp"
+    pqr_command_path = "path/to/pdb2pqr "
+    apbs_command_path = "path/to/APBS-1.4.1-binary/bin/apbs "
+    dxmath_command_path = "path/to/APBS-1.4.1-binary/share/apbs/tools/bin/dxmath "
+    surface_command_path = "../RESPAC/surface/bin/surface "
+    pdcp_command_path = "../RESPAC/pdcp/bin/pdcp "
 
-    shell_path = "export LD_LIBRARY_PATH=~/Workspace/respac/APBS-1.4.1-binary/lib/:/usr/local/lib/:/usr/lib/:$LD_LIBRARY_PATH; "
+    shell_path = "export LD_LIBRARY_PATH=/path/to/APBS-1.4.1-binary/lib/:/usr/local/lib/:/usr/lib/:$LD_LIBRARY_PATH; "
 
     # -------------------- Basic Variables --------------------
     ionic_strength  = 0.15
