@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import re
@@ -9,13 +9,13 @@ def main(pro_name):
     '''
 
     # -------------------- Commands & Params --------------------
-    pqr_command_path = "path/to/pdb2pqr "
-    apbs_command_path = "path/to/APBS-1.4.1-binary/bin/apbs "
-    dxmath_command_path = "path/to/APBS-1.4.1-binary/share/apbs/tools/bin/dxmath "
-    surface_command_path = "../RESPAC/surface/bin/surface "
-    pdcp_command_path = "../RESPAC/pdcp/bin/pdcp "
+    pqr_command_path = "../pdb2pqr-2.1.1/pdb2pqr "
+    apbs_command_path = "../apbs-1.5/bin/apbs "
+    dxmath_command_path = "../apbs-1.5/bin/dxmath "
+    surface_command_path = "../surface/bin/surface "
+    pdcp_command_path = "../pdcp/bin/pdcp "
 
-    shell_path = "export LD_LIBRARY_PATH=/path/to/APBS-1.4.1-binary/lib/:/usr/local/lib/:/usr/lib/:$LD_LIBRARY_PATH; "
+    shell_path = "export LD_LIBRARY_PATH=../apbs-1.5/lib/:/usr/local/lib/:/usr/lib/:$LD_LIBRARY_PATH; "
 
     # -------------------- Basic Variables --------------------
     ionic_strength  = 0.15
