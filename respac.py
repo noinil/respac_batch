@@ -108,7 +108,7 @@ def main(pro_name):
     apbs_box_zlen = length_z + apbs_box_margin
     apbs_grid_n_x = int(apbs_box_xlen / apbs_grid_size)
     apbs_grid_n_y = int(apbs_box_ylen / apbs_grid_size)
-    apbs_grid_n_z = int(apbs_box_xlen / apbs_grid_size)
+    apbs_grid_n_z = int(apbs_box_zlen / apbs_grid_size)
 
     fout_apbs_in = open(apbs_name, 'w')
     with open('./lib/template/apbs_in_template') as fin_apbs_temp:
